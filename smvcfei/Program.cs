@@ -32,7 +32,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.Name = ".smvcfei";
     options.LoginPath = "/Cuentas/Login";
     options.SlidingExpiration = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(20);    
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
 });
 // Soporte para Identity
 
