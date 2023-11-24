@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Win32;
+using smvcfei.Data;
 using smvcfei.Models;
 
 namespace smvcfei.Controllers
@@ -12,11 +13,13 @@ namespace smvcfei.Controllers
     [Authorize]
     public class CuentasController : Controller
     {
+        private readonly IdentityContext _context;
         private readonly UserManager<CustomIdentityUser> _userManager;
         private readonly SignInManager<CustomIdentityUser> _signInManager;
 
-        public CuentasController(UserManager<CustomIdentityUser> userManager, SignInManager<CustomIdentityUser> signInManager)
+        public CuentasController(IdentityContext context, UserManager<CustomIdentityUser> userManager, SignInManager<CustomIdentityUser> signInManager)
         {
+            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -62,9 +65,10 @@ namespace smvcfei.Controllers
 
         // Este atributo permite que /Cuentas/Registro si pueda ser accedido aunque no se este logueado
         [AllowAnonymous]
-        public IActionResult Registro(bool creado = false)
+        public async Task<IActionResult> Registro(bool creado = false)
         {
             ViewData["creado"] = creado;
+            ViewData["RolesSelect"] = new SelectList(await _context.Roles.OrderBy(r => r.Name).AsNoTracking().ToListAsync(), "Name", "Name", null);
             return View();
         }
 
@@ -95,8 +99,8 @@ namespace smvcfei.Controllers
                         // En caso de éxito, se regresa al formulario para crear otro usuario
                         if (result.Succeeded)
                         {
-                            await _userManager.AddToRoleAsync(usuarioToCreate, "Administrador");
-                            return RedirectToAction(nameof(Registro), new { creado = true });
+                            await _userManager.AddToRoleAsync(usuarioToCreate, model.Rol);
+                            return RedirectToAction(nameof(RegistroAsync), new { creado = true });
                         }
 
                         List<IdentityError> errorList = result.Errors.ToList();
@@ -121,12 +125,15 @@ namespace smvcfei.Controllers
         {
             // Busca si el correo ya existe
             var identityUser = await _userManager.FindByEmailAsync(User.Identity.Name);
+            var roles = _userManager.GetRolesAsync(identityUser).Result;
+            var rol = string.Join(",", roles);
 
             UsuarioViewModel usuario = new()
             {
                 Nombre = identityUser.Nombrecompleto,
-                Correo = identityUser.Email
-            };
+                Correo = identityUser.Email,
+                Rol = rol
+            };            
 
             return View(usuario);
         }

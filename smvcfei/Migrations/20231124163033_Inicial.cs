@@ -158,17 +158,22 @@ namespace smvcfei.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "349243d2-fbaa-4d47-9698-4aa2f1612770", "fb4d6723-efd3-4cfb-897b-ba2f8d3db2d2", "Administrador", "ADMINISTRADOR" });
+                values: new object[] { "437033cf-5edc-4b92-b2f8-713d2ac683ba", "795b3b0c-5b3e-430f-a511-bd795e90660e", "Administrador", "ADMINISTRADOR" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "fdcc36e2-fa5b-477a-851f-248f413a6d1a", "b6114372-d585-441d-b1ed-fa024ad6d0ca", "Usuario general", "USUARIO GENERAL" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Nombrecompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "4f661bde-a8da-4c92-947e-5d12d798d20e", 0, "78e69a70-4bc8-4e54-b33a-1616d8598ba7", "gvera@uv.mx", false, false, null, "Guillermo Humberto Vera Amaro", "GVERA@UV.MX", "GVERA@UV.MX", "AQAAAAEAACcQAAAAEFJ00yvHGKzwb0PeJZEm3T4oUkG42qL/uIY+ZAv6OS0SyCXcI6YNUHQWCK+5JdVg4A==", null, false, "b6cd9d6f-8147-4a27-b5e3-74a9eeff597d", false, "gvera@uv.mx" });
+                values: new object[] { "3d996a17-7a43-46df-a7f4-213126d98264", 0, "147dd7aa-b329-4cde-9eb1-cca92f1fd221", "gvera@uv.mx", false, false, null, "Guillermo Humberto Vera Amaro", "GVERA@UV.MX", "GVERA@UV.MX", "AQAAAAEAACcQAAAAELS4H+H7khvVEk//giJflp3DhujtZtZD+RT9dWPh5TUU/u01X1no2iZUU6AU0UOO+w==", null, false, "05f07c72-4138-42d1-86e0-354f62b2db53", false, "gvera@uv.mx" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "349243d2-fbaa-4d47-9698-4aa2f1612770", "4f661bde-a8da-4c92-947e-5d12d798d20e" });
+                values: new object[] { "437033cf-5edc-4b92-b2f8-713d2ac683ba", "3d996a17-7a43-46df-a7f4-213126d98264" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

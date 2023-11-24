@@ -27,6 +27,13 @@
                 <input asp-for="Nombre" class="form-control">
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
+            <div class="mb-3 obligatorio">
+                <label asp-for="Rol" class="form-label"></label>
+                <select asp-for="Rol" asp-items='(SelectList)ViewData["RolesSelect"]' class="form-select">
+                    <option value="">Seleccione un valor para este campo</option>
+                </select>
+                <span asp-validation-for="Rol" class="text-danger"></span>
+            </div>
             <div class="mb-3">
                 <label asp-for="Password" class="form-label"></label>
                 <input asp-for="Password" class="form-control">

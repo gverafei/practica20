@@ -12,7 +12,7 @@ using smvcfei.Data;
 namespace smvcfei.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20231116022411_Inicial")]
+    [Migration("20231124163033_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,10 +53,17 @@ namespace smvcfei.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "349243d2-fbaa-4d47-9698-4aa2f1612770",
-                            ConcurrencyStamp = "fb4d6723-efd3-4cfb-897b-ba2f8d3db2d2",
+                            Id = "437033cf-5edc-4b92-b2f8-713d2ac683ba",
+                            ConcurrencyStamp = "795b3b0c-5b3e-430f-a511-bd795e90660e",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
+                        },
+                        new
+                        {
+                            Id = "fdcc36e2-fa5b-477a-851f-248f413a6d1a",
+                            ConcurrencyStamp = "b6114372-d585-441d-b1ed-fa024ad6d0ca",
+                            Name = "Usuario general",
+                            NormalizedName = "USUARIO GENERAL"
                         });
                 });
 
@@ -149,8 +156,8 @@ namespace smvcfei.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "4f661bde-a8da-4c92-947e-5d12d798d20e",
-                            RoleId = "349243d2-fbaa-4d47-9698-4aa2f1612770"
+                            UserId = "3d996a17-7a43-46df-a7f4-213126d98264",
+                            RoleId = "437033cf-5edc-4b92-b2f8-713d2ac683ba"
                         });
                 });
 
@@ -243,18 +250,18 @@ namespace smvcfei.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4f661bde-a8da-4c92-947e-5d12d798d20e",
+                            Id = "3d996a17-7a43-46df-a7f4-213126d98264",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "78e69a70-4bc8-4e54-b33a-1616d8598ba7",
+                            ConcurrencyStamp = "147dd7aa-b329-4cde-9eb1-cca92f1fd221",
                             Email = "gvera@uv.mx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             Nombrecompleto = "Guillermo Humberto Vera Amaro",
                             NormalizedEmail = "GVERA@UV.MX",
                             NormalizedUserName = "GVERA@UV.MX",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFJ00yvHGKzwb0PeJZEm3T4oUkG42qL/uIY+ZAv6OS0SyCXcI6YNUHQWCK+5JdVg4A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELS4H+H7khvVEk//giJflp3DhujtZtZD+RT9dWPh5TUU/u01X1no2iZUU6AU0UOO+w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b6cd9d6f-8147-4a27-b5e3-74a9eeff597d",
+                            SecurityStamp = "05f07c72-4138-42d1-86e0-354f62b2db53",
                             TwoFactorEnabled = false,
                             UserName = "gvera@uv.mx"
                         });

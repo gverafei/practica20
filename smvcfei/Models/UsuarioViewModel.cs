@@ -14,6 +14,9 @@ namespace smvcfei.Models
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        public string Rol { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }

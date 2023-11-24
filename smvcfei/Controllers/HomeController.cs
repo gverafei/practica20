@@ -22,6 +22,13 @@ namespace smvcfei.Controllers
             return View();
         }
 
+        // Solo pueden entrar usuarios con rol "Administrador"
+        [Authorize(Roles = "Administrador")]
+        public IActionResult SoloParaAdministradores()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
