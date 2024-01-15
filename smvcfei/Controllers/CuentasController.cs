@@ -100,7 +100,7 @@ namespace smvcfei.Controllers
                         if (result.Succeeded)
                         {
                             await _userManager.AddToRoleAsync(usuarioToCreate, model.Rol);
-                            return RedirectToAction(nameof(RegistroAsync), new { creado = true });
+                            return RedirectToAction("Registro", new { creado = true });
                         }
 
                         List<IdentityError> errorList = result.Errors.ToList();
